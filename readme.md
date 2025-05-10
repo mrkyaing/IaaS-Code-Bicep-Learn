@@ -25,3 +25,7 @@ Install Bicep extension for VS Code for syntax highlighting and IntelliSense.
 Microsoft Learn: https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/
 
 ✅Free Bicep Training: https://aka.ms/bicep
+# Learning Resource by India Guy! 
+- https://praveenkumarsreeram.com/2021/08/01/azure-bicep-for-beginners/
+# bicep playground 
+- https://azure.github.io/bicep/
