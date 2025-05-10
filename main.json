@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "user": {
+      "user-name": "MG"
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "nameResult": {
+      "type": "string",
+      "value": "Hello,World!MG"
+    }
+  }
+}
