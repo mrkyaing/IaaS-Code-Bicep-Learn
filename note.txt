@@ -1,1 +1,3 @@
 az deployment group create --resource-group mg-hrms --template-file deplyme.bicep --parameters storageAccountName=mgncu102
+az deployment group create --resource-group mg-hrms --template-file sqldb.bicep --parameters administratorLogin=mg administratorLoginPassword=mg101@ncu308
+az deployment group create --resource-group cloud-shell-storage-centralindia  --template-file sqldb.bicep --parameters administratorLogin=mg administratorLoginPassword=p1Tv*9Y7]z97
