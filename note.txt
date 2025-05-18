@@ -3,3 +3,4 @@ az deployment group create --resource-group mg-hrms --template-file sqldb.bicep 
 az deployment group create --resource-group cloud-shell-storage-centralindia  --template-file sqldb.bicep --parameters administratorLogin=mg administratorLoginPassword=p1Tv*9Y7]z97
 az webapp create --name khaingstore --resource-group MGRGBicep --plan azmgappserviceplan1
 az deployment group create -g  MGRGBicep -f .\appServicePlan.bicep
+az webapp deployment user set --user-name $topone-sms  --password mjDKq7i8nwCG79gfzSoDmPk7kryCNCXvgjo2KRQtvEYqcn1WWuiciJldmc2w

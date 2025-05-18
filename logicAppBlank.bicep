@@ -1,5 +1,5 @@
 param location string = resourceGroup().location
-param logicAppName string = 'simple-logic-app'
+param logicAppName string = 'consumption-logic-app'
 
 resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
   name: logicAppName
