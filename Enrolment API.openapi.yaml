@@ -1,0 +1,224 @@
+openapi: 3.0.1
+info:
+  title: Enrolment API
+  description: ''
+  version: V1
+servers:
+  - url: https://uc-ae-dev-intcore-apim.azure-api.net/api/enrolments/V1
+paths:
+  /:
+    get:
+      summary: Returns a list of enrolments based on the search query
+      description: Returns a list of enrolments based on the search query
+      operationId: GetEnrolmentDetailsV1
+      parameters:
+        - name: party_id
+          in: query
+          description: the party id of the enrolment to return
+          schema:
+            type: string
+        - name: enrolmentStatus
+          in: query
+          description: Filter to enrolments with the specified status
+          schema:
+            type: string
+        - name: updatedSinceDateTime
+          in: query
+          description: Filter to enrolments updated after the value provided
+          schema:
+            type: string
+        - name: includeSubEnrolmentData
+          in: query
+          description: 'set to true when Course details, Programs and Categories are needed to be returned.'
+          schema:
+            type: boolean
+            default: false
+        - name: includeOnlyDiplomaAndPMP
+          in: query
+          description: set to true to return only Diploma and PMP enrolments.
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: An enrolment object
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Enrolment'
+              example:
+                - id: 120
+                  enrolmentIdentifier: ENUNS00081
+                  courseNumber: 2023_STD_A-Art
+                  startDate: '2023-01-01'
+                  endDate: '2023-12-31'
+                  studyReason: Not Specified
+                  studyMode: Full Time
+                  enrolmentStatus: Offered
+                  enrolmentStatusChangeDate: string
+                  enabled: 'true'
+                  location: Kensington
+                  courseType: online
+                  agent: agent ABC
+                  courseScopeCode: '7001'
+                  courseScopeName: Diploma of Science
+                  programSubjects: [ ]
+                  enrolmentSubjects: [ ]
+        '400':
+          description: The specified party id or enrolment id is invalid
+        '404':
+          description: An enrolment with the specified id was not found
+        '500':
+          description: Unexpected error
+  '/{enrolmentId}':
+    post:
+      summary: Updates an enrolment and returns the updated enrolment
+      description: Updates an enrolment and returns the updated enrolment
+      operationId: UpdateEnrolmentV1
+      parameters:
+        - name: enrolmentId
+          in: path
+          description: the enrolment ID of the enrolment to update
+          required: true
+          schema:
+            type: string
+      responses:
+        '202':
+          description: An enrolment object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enrolment'
+              example:
+                id: 120
+                enrolmentIdentifier: ENUNS00081
+                courseNumber: 2023_STD_A-Art
+                startDate: '2023-01-01'
+                endDate: '2023-12-31'
+                studyReason: Not Specified
+                studyMode: Full Time
+                enrolmentStatus: Offered
+                enrolmentStatusChangeDate: string
+                enabled: 'true'
+                location: Kensington
+                courseType: online
+                agent: agent ABC
+                courseScopeCode: '7001'
+                courseScopeName: Diploma of Science
+                programSubjects: [ ]
+                enrolmentSubjects: [ ]
+        '400':
+          description: The specified enrolment id is invalid
+        '404':
+          description: An enrolment with the specified id was not found
+        '500':
+          description: Unexpected error
+    get:
+      summary: Get an enrolment by the enrolmentId
+      description: Get an enrolment by the enrolmentId
+      operationId: GetEnrolmentV1
+      parameters:
+        - name: enrolmentId
+          in: path
+          description: the identifier of the enrolment to be returned
+          required: true
+          schema:
+            type: string
+      responses:
+        '202':
+          description: An enrolment object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enrolment'
+              example:
+                id: 120
+                enrolmentIdentifier: ENUNS00081
+                courseNumber: 2023_STD_A-Art
+                startDate: '2023-01-01'
+                endDate: '2023-12-31'
+                studyReason: Not Specified
+                studyMode: Full Time
+                enrolmentStatus: Offered
+                enrolmentStatusChangeDate: string
+                enabled: 'true'
+                location: Kensington
+                courseType: online
+                agent: agent ABC
+                courseScopeCode: '7001'
+                courseScopeName: Diploma of Science
+                programSubjects: [ ]
+                enrolmentSubjects: [ ]
+        '400':
+          description: The specified enrolment id is invalid
+        '404':
+          description: An enrolment with the specified id was not found
+        '500':
+          description: Unexpected error
+components:
+  schemas:
+    Enrolment:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 120
+        enrolmentIdentifier:
+          type: string
+          example: ENUNS00081
+        courseNumber:
+          type: string
+          example: 2023_STD_A-Art
+        startDate:
+          type: string
+          example: '2023-01-01'
+        endDate:
+          type: string
+          example: '2023-12-31'
+        studyReason:
+          type: string
+          example: Not Specified
+        studyMode:
+          type: string
+          example: Full Time
+        enrolmentStatus:
+          type: string
+          example: Offered
+        enrolmentStatusChangeDate:
+          type: string
+        enabled:
+          type: string
+          example: 'true'
+        location:
+          type: string
+          example: Kensington
+        courseType:
+          type: string
+          example: online
+        agent:
+          type: string
+          example: agent ABC
+        courseScopeCode:
+          type: string
+          example: '7001'
+        courseScopeName:
+          type: string
+          example: Diploma of Science
+        programSubjects:
+          type: array
+        enrolmentSubjects:
+          type: array
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
