@@ -1,8 +1,8 @@
-@description('The name of the environment. This must be dev, test, or prod.')
+@description('The name of the environment. This must be dev, tst, or prd.')
 @allowed([
   'dev'
-  'test'
-  'prod'
+  'tst'
+  'prd'
 ])
 param environmentName string = 'dev'
 

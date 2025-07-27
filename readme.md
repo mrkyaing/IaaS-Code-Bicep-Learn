@@ -26,6 +26,7 @@ Microsoft Learn: https://learn.microsoft.com/en-us/azure/azure-resource-manager/
 - https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/
 - https://www.letsdevops.net/my-blog/categories/azure-bicep
 - https://www.devopsschool.com/blog/bicep-tutorials-using-azure/
+- https://github.com/daveRendon/azinsider
 - https://prod-28.centralindia.logic.azure.com:443/workflows/c1ea8be1a2234bcea8c28268b7f75fca/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=DzK8gBJNAbGK8TavjQh2pzGFAkdS4yIToj-TqQTE9iw
 https://prod-28.centralindia.logic.azure.com:443/workflows/c1ea8be1a2234bcea8c28268b7f75fca/triggers
 https://null@topone-sms-b8f5cqgxcyd9arbf.scm.centralindia-01.azurewebsites.net/topone-sms.git
